@@ -1,0 +1,10 @@
+@import './../../index.scss';
+
+.card {
+	background-color: #fff;
+	color: black;
+	padding: 0.5rem;
+	margin: 0.5rem 0;
+	border-radius: $radius;
+	text-align: center;
+}

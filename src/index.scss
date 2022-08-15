@@ -1,0 +1,35 @@
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+$back: rgba(45, 44, 107, 0.7);
+$red: rgba(248, 62, 62, 0.9);
+$blue: rgba(111, 194, 245, 0.9);
+$radius: 0.7rem;
+
+.app {
+	background: url('./../public/beach.jpg') 50% 50% / cover no-repeat fixed;
+
+	max-width: 100vw;
+	min-height: 100vh;
+
+	.cont {
+		padding: 2rem 3rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: start;
+	}
+}

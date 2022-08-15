@@ -1,0 +1,54 @@
+@import './../../index.scss';
+
+.board {
+	background-color: $back;
+	color: white;
+	margin: 0.5rem;
+	padding: 1rem;
+	width: calc(100% / 5 - 1rem);
+	border-radius: $radius;
+	text-align: right;
+	font-size: 1.3rem;
+
+	.title {
+		text-align: center;
+	}
+
+	.form {
+		textarea {
+			display: block;
+			border-radius: $radius;
+			border: none;
+
+			min-width: 100%;
+			max-width: 100%;
+			min-height: 5rem;
+			padding: 0.5rem;
+			font-size: 1rem;
+			margin-bottom: 0.5rem;
+			&:focus {
+				border: none;
+				outline: none;
+			}
+		}
+		p {
+			display: inline-flex;
+			padding: 0.5rem;
+			margin-left: 0.5rem;
+			cursor: pointer;
+			text-transform: uppercase;
+			font-weight: 600;
+
+			border-radius: $radius;
+			border: none;
+			color: white;
+			font-size: 1rem;
+			&.add {
+				background-color: $red;
+			}
+			&.cancel {
+				background-color: $blue;
+			}
+		}
+	}
+}

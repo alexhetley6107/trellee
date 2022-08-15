@@ -1,4 +1,4 @@
-@import './../../index.scss';
+@import './../App.module.scss';
 
 .header {
 	display: flex;
@@ -23,5 +23,10 @@
 		line-height: 0.6rem;
 		padding: 0.8rem 1rem;
 		padding-bottom: 0.9rem;
+	}
+
+	@media (max-width: 450px) {
+		// flex-direction: column;
+		padding: 0.3rem 0.5rem;
 	}
 }

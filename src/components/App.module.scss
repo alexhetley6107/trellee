@@ -21,7 +21,7 @@ $blue: rgba(111, 194, 245, 0.9);
 $radius: 0.7rem;
 
 .app {
-	background: url('./../public/beach.jpg') 50% 50% / cover no-repeat fixed;
+	background: url('./../../public/beach.jpg') 50% 50% / cover no-repeat fixed;
 
 	max-width: 100vw;
 	min-height: 100vh;
@@ -31,5 +31,9 @@ $radius: 0.7rem;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: start;
+
+		@media (max-width: 960px) {
+			padding: 1rem 0;
+		}
 	}
 }

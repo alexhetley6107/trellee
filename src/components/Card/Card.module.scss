@@ -1,4 +1,4 @@
-@import './../../index.scss';
+@import './../App.module.scss';
 
 .card {
 	background-color: #fff;
@@ -7,4 +7,27 @@
 	margin: 0.5rem 0;
 	border-radius: $radius;
 	text-align: center;
+	position: relative;
+
+	.del {
+		color: white;
+		background-color: $blue;
+		cursor: pointer;
+		position: absolute;
+		top: 30%;
+		right: -0.7rem;
+		border-radius: $radius;
+		font-size: 1.3rem;
+		line-height: 1rem;
+		padding: 0 0.15rem;
+		padding-bottom: 0.22rem;
+
+		display: none;
+	}
+
+	&:hover {
+		.del {
+			display: block;
+		}
+	}
 }

@@ -1,6 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteBoard, addCard, renameBoard } from '../../redux/cardSlice';
+import {
+	deleteBoard,
+	addCard,
+	renameBoard,
+	moveCardToBoard,
+	moveBoard,
+} from '../../redux/cardSlice';
 import Card from '../Card/Card';
 import s from './Board.module.scss';
 
@@ -32,7 +38,7 @@ function Board({ board }) {
 		setRenaming(true);
 
 		//TODO: fix focus on opening
-		renameInput.current.focus();
+		renameInput.current?.focus();
 	};
 
 	const handleRenameBoard = () => {
@@ -44,8 +50,42 @@ function Board({ board }) {
 		setRenaming(false);
 	};
 
+	const allowDrop = (e) => {
+		e.preventDefault();
+	};
+
+	const handleOnDrop = (e) => {
+		// e.stopPropagation();
+
+		const boardInfo = e.dataTransfer.getData('boardInfo');
+		const cardInfo = e.dataTransfer.getData('cardInfo');
+
+		if (cardInfo) {
+			const { fromBoardId, movingCard } = JSON.parse(cardInfo);
+			const toBoardId = id;
+			dispatch(moveCardToBoard({ fromBoardId, toBoardId, movingCard }));
+			return;
+		}
+
+		if (boardInfo) {
+			const movingBoard = JSON.parse(boardInfo);
+			const toBoardId = id;
+			dispatch(moveBoard({ toBoardId, movingBoard }));
+		}
+	};
+
+	const handleDragBoardStart = (e) => {
+		const movingBoard = JSON.stringify(board);
+		e.dataTransfer.setData('boardInfo', movingBoard);
+	};
+
 	return (
-		<div className={s.board}>
+		<div
+			className={s.board}
+			draggable
+			onDragOver={allowDrop}
+			onDragStart={handleDragBoardStart}
+			onDrop={handleOnDrop}>
 			{isRenaming ? (
 				<div className={s.rename}>
 					<input

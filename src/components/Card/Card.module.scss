@@ -9,23 +9,24 @@
 	text-align: center;
 	position: relative;
 
+	p {
+		width: 100%;
+		overflow: hidden;
+	}
+
 	.del {
-		color: white;
-		background-color: $blue;
 		cursor: pointer;
 		position: absolute;
-		top: 30%;
-		right: -0.7rem;
-		border-radius: $radius;
 		font-size: 1.3rem;
 		line-height: 1rem;
-		padding: 0 0.15rem;
-		padding-bottom: 0.22rem;
 
 		display: none;
+		top: 0;
+		right: 0.2rem;
 	}
 
 	&:hover {
+		cursor: grab;
 		.del {
 			display: block;
 		}
